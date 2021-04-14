@@ -53,9 +53,9 @@ class BarArray{
         this.index_2 = 1;
 
         this.myBars = new Array();
-        var x = 0;
-        for(var i=0; i<this.amountOfBars; i++){
-            var barHeight = rand(5, canvas.height);
+        let x = 0;
+        for(let i=0; i<this.amountOfBars; i++){
+            let barHeight = rand(5, canvas.height);
             this.myBars[i] = new Bar(canvas, barWidth, barHeight, x, this.canvH, i);
 
             x += barWidth + space;
@@ -64,7 +64,7 @@ class BarArray{
     }
 
     newSetOfBars(canvas){
-        var slider = document.getElementById("myRange");
+        let slider = document.getElementById("myRange");
         this.barWidth = parseInt(slider.value);
         this.amountOfBars = parseInt(this.canvW/(this.barWidth + this.space));
         this.myBars.splice(0, this.myBars.length); 
@@ -82,9 +82,9 @@ class BarArray{
         this.index_1 = 0;
         this.index_2 = 1;
 
-        var x = 0;
-        for(var i=0; i<this.amountOfBars; i++){
-            var barHeight = rand(5, canvas.height);
+        let x = 0;
+        for(let i=0; i<this.amountOfBars; i++){
+            let barHeight = rand(5, canvas.height);
             this.myBars[i] = new Bar(canvas, this.barWidth, barHeight, x, this.canvH, i);
             x += this.barWidth + this.space;
         }
@@ -95,25 +95,25 @@ class BarArray{
         this.ctx.clearRect(0, 0, this.canvW, this.canvH);
         // bubble sort
         if(this.typeOfSorting == 0){
-            for(var i=this.amountOfBars-1; i>=this.amountOfBars-this.countSortedBars; i--){
+            for(let i=this.amountOfBars-1; i>=this.amountOfBars-this.countSortedBars; i--){
                 if(i>=0 && i<this.amountOfBars)
                     this.myBars[i].setGreenColor();
             }
         }
         // insertion sort
         else if(this.typeOfSorting == 1){
-            for(var i=0; i<this.countSortedBars; i++)
+            for(let i=0; i<this.countSortedBars; i++)
                 this.myBars[i].setGreenColor();
             if(this.j>0 && this.j<this.amountOfBars)
                 this.myBars[this.j].setRedColor(); 
         }
-        for(var i=0; i<this.amountOfBars; i++){
+        for(let i=0; i<this.amountOfBars; i++){
             this.myBars[i].draw();
         }
     }
 
     swap(x, y){
-        var temp = this.myBars[x].height;
+        let temp = this.myBars[x].height;
         this.myBars[x].height = this.myBars[y].height;
         this.myBars[y].height = temp;
     }
