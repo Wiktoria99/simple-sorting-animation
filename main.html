@@ -1,0 +1,70 @@
+<!DOCTYPE html>   
+<html lang="pl">
+    <head>
+    <meta charset="UTF-8">
+    <link rel="StyleSheet" href="./style.css" type="text/css">
+    <script src="./sort.js"></script>
+    <!-- <script src="./ajax.js"></script>   -->
+    <meta name = "author" content = "Wiktoria Sowa" />
+    <title>Projekt 1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet"> 
+    </head>
+
+  <body>
+  <!-- <body onload="read('opis.html');"> -->
+    <div id = "pasek">
+        Animacja sortowania
+    </div>   
+
+    <div class="nav">
+        <a style="margin-left: 15%;">Opis animacji</a>
+        <!-- <a style="margin-left: 15%;" onclick="read('opis.html');">Opis animacji</a> -->
+        <a onclick="bars.bubbleSort();">Bubble Sort</a>
+        <a onclick="bars.insertionSort();">Insertion Sort</a>
+    </div>
+
+    <div id = "container">
+    <div id = "content" >
+        <span id="toRead"></span>
+        <br>
+        <canvas id="myCanvas" width="1300" height="400"></canvas>
+
+        <div class="slidecontainer">
+            <input type="range" min="1" max="120" value="29" class="slider" id="myRange" >
+        </div>
+
+        <button onclick="bars.start();"               class="btn zad4">Start</button>
+        <button onclick="bars.stop();"                class="btn zad4">Stop</button>
+        <button onclick="bars.newSetOfBars(canvas);"  class="btn zad4">Reset</button>
+
+
+
+        <table>
+            <tr>
+            <td>Szerokość słupków:</td>
+            <td><span id="demo"></span></td>
+            <td>Ilość słupków:</td>
+            <td><span id="demo_2">43</span></td>
+            </tr>
+        </table>
+
+        <script>
+            var canvas = document.getElementById('myCanvas');
+            var bars = new BarArray(canvas);
+
+            var slider = document.getElementById("myRange");
+            var output = document.getElementById("demo");
+            var output_2 = document.getElementById("demo_2");
+            output.innerHTML = slider.value;
+
+            slider.oninput = function() {
+                output.innerHTML = this.value;
+                bars.newSetOfBars(canvas);
+                output_2.innerHTML = bars.amountOfBars;
+            }
+        </script>
+
+    </div>
+    </div>
+  </body>
+</html>
