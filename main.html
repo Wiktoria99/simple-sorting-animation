@@ -45,12 +45,12 @@
         </table>
 
         <script>
-            var canvas = document.getElementById('myCanvas');
-            var bars = new BarArray(canvas);
+            let canvas = document.getElementById('myCanvas');
+            let bars = new BarArray(canvas);
 
-            var slider = document.getElementById("myRange");
-            var output = document.getElementById("demo");
-            var output_2 = document.getElementById("demo_2");
+            let slider = document.getElementById("myRange");
+            let output = document.getElementById("demo");
+            let output_2 = document.getElementById("demo_2");
             output.innerHTML = slider.value;
 
             slider.oninput = function() {
